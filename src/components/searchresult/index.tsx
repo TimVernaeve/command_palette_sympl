@@ -69,7 +69,7 @@ const fakeResults = [
 const SearchResult = ({isVisible}: SearchResultProps) => {
     return (
         <div className={`${styles.container} ${isVisible && styles.visible}`}>
-            <FilterList />
+            <FilterList results={fakeResults}/>
             <ResultList results={fakeResults}/>
         </div>
     )

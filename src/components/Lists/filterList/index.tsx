@@ -1,14 +1,17 @@
 import Image from 'next/image'
 
 import styles from './styles.module.css'
+import { ResultType } from '@/helpers/types'
 
 interface FilterListProps {
-    people?: number,
-    files?: number,
-    folders?: number
+    results: ResultType[]
 }
 
-const FilterList = ({people, files, folders}: FilterListProps) => {
+const FilterList = ({results}: FilterListProps) => {
+    const people = results.filter(result => result.type === 'user').length
+    const files = results.filter(result => result.type === 'file').length
+    const folders = results.filter(result => result.type === 'folder').length
+    
     return (
         <ul className={styles.filter_list}>
             <li className={styles.filter_list_item}>
@@ -17,7 +20,7 @@ const FilterList = ({people, files, folders}: FilterListProps) => {
                     <span>People</span>
                 </div>
                 <div className={styles.filter_list_item_container}>
-                    <span className={styles.number}>{people ? people : 0}</span>
+                    <span className={styles.number}>{people}</span>
                     <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={16} height={16} />
                 </div>
             </li>
@@ -27,7 +30,7 @@ const FilterList = ({people, files, folders}: FilterListProps) => {
                     <span>Files</span>
                 </div>
                 <div className={styles.filter_list_item_container}>
-                    <span className={styles.number}>{files ? files : 0}</span>
+                    <span className={styles.number}>{files}</span>
                     <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={16} height={16} />
                 </div>
             </li>
@@ -37,7 +40,7 @@ const FilterList = ({people, files, folders}: FilterListProps) => {
                     <span>Folders</span>
                 </div>
                 <div className={styles.filter_list_item_container}>
-                    <span className={styles.number}>{folders ? folders : 0}</span>
+                    <span className={styles.number}>{folders}</span>
                     <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={16} height={16} />
                 </div>
             </li>
