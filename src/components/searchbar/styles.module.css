@@ -1,0 +1,36 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 423px;
+    background-color: white;
+    border-radius: .5rem;
+    padding: 1rem;
+    gap: .5rem;
+    box-sizing: border-box;
+}
+
+.open {
+    border-radius: .5rem .5rem 0 0;
+}
+
+.searchbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: none;
+    font-size: .75rem;
+    color: #191D23;
+    background-color: transparent;
+}
+
+.searchbar::placeholder {
+    color: #191D23;
+}
+
+.searchbar:focus {
+    border: none;
+    outline: none;
+}
