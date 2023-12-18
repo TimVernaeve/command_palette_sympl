@@ -34,3 +34,18 @@
     border: none;
     outline: none;
 }
+
+.label {
+    border-radius: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: .5rem;
+    padding-block: .25rem;
+    gap: .25rem;
+    background-color: #B8C0CC;
+    color: #4B5768;
+    font-weight: 500;
+    font-size: .75rem;
+    box-sizing: border-box;
+}

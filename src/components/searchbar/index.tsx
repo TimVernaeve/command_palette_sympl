@@ -16,6 +16,33 @@ const SearchBar = ({isOpen}: SearchBarProps) => {
                 width={16} 
                 height={16} 
             />
+            <span className={styles.label}>
+                people
+                <Image 
+                    src='/img/icons/close.svg' 
+                    alt='arrowDown' 
+                    width={8} 
+                    height={8}
+                />
+            </span>
+            <span className={styles.label}>
+                files
+                <Image 
+                    src='/img/icons/close.svg' 
+                    alt='arrowDown' 
+                    width={8} 
+                    height={8}
+                />
+            </span>
+            <span className={styles.label}>
+                folders
+                <Image 
+                    src='/img/icons/close.svg' 
+                    alt='arrowDown' 
+                    width={8} 
+                    height={8}
+                />
+            </span>
             <input 
                 className={styles.searchbar}
                 type="text" 
