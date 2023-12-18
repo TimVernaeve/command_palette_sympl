@@ -3,10 +3,16 @@ import styles from './styles.module.css'
 import Image from 'next/image'
 
 interface SearchBarProps {
-    isOpen?: boolean
+    isOpen?: boolean,
+    filter: string,
+    updateFilter: (type: string) => void
 }
 
-const SearchBar = ({isOpen}: SearchBarProps) => {
+const SearchBar = ({isOpen, filter, updateFilter}: SearchBarProps) => {
+
+    const removeFilter = () => {
+        updateFilter('')
+    }
 
     return (
         <div className={`${styles.container} ${isOpen && styles.open}`}>
@@ -16,24 +22,32 @@ const SearchBar = ({isOpen}: SearchBarProps) => {
                 width={16} 
                 height={16} 
             />
-            <span className={styles.label}>
-                people
-                <Image 
-                    src='/img/icons/close.svg' 
-                    alt='arrowDown' 
-                    width={8} 
-                    height={8}
-                />
-            </span>
-            <span className={styles.label}>
-                files
-                <Image 
-                    src='/img/icons/close.svg' 
-                    alt='arrowDown' 
-                    width={8} 
-                    height={8}
-                />
-            </span>
+            {filter === 'user' &&
+                <span className={styles.label}>
+                    people
+                    <Image 
+                        src='/img/icons/close.svg' 
+                        alt='arrowDown' 
+                        width={8} 
+                        height={8}
+                        onClick={() => removeFilter()}
+                    />
+                </span>
+            }
+            {filter === 'file' &&
+                <span className={styles.label}>
+                    files
+                    <Image 
+                        src='/img/icons/close.svg' 
+                        alt='arrowDown' 
+                        width={8} 
+                        height={8}
+                        onClick={() => removeFilter()}
+                    />
+                </span>
+            }
+            {
+            filter === 'folder' &&
             <span className={styles.label}>
                 folders
                 <Image 
@@ -41,8 +55,10 @@ const SearchBar = ({isOpen}: SearchBarProps) => {
                     alt='arrowDown' 
                     width={8} 
                     height={8}
+                    onClick={() => removeFilter()}
                 />
             </span>
+            }       
             <input 
                 className={styles.searchbar}
                 type="text" 

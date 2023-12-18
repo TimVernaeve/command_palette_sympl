@@ -7,11 +7,16 @@ import SearchResult from "../searchresult"
 const CommandPalette = () => {
 
     const [isOpen, setOpen] = useState(true)
+    const [filter, setFilter] = useState<string>('')
+
+    const filterData = (type: string) => {
+        setFilter(type)
+    }
 
     return (
         <div>
-            <SearchBar isOpen={isOpen}/>
-            <SearchResult isVisible={isOpen} />
+            <SearchBar isOpen={isOpen} filter={filter} updateFilter={filterData}/>
+            <SearchResult isVisible={isOpen} filter={filterData}/>
         </div>
     )
 }
