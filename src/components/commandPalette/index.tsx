@@ -16,7 +16,7 @@ const CommandPalette = () => {
     return (
         <div>
             <SearchBar isOpen={isOpen} filter={filter} updateFilter={filterData}/>
-            <SearchResult isVisible={isOpen} filter={filterData}/>
+            <SearchResult isVisible={isOpen} filter={filterData} activeFilter={filter}/>
         </div>
     )
 }

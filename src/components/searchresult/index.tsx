@@ -1,12 +1,12 @@
 import styles from './styles.module.css'
-import Image from 'next/image'
 
 import FilterList from '@/components/Lists/filterList'
 import ResultList from '@/components/Lists/resultList'
 
 interface SearchResultProps {
     isVisible?: boolean,
-    filter: (type: string) => void
+    filter: (type: string) => void,
+    activeFilter: string
 }
 
 const fakeResults = [
@@ -67,7 +67,7 @@ const fakeResults = [
 
 ]
 
-const SearchResult = ({isVisible, filter}: SearchResultProps) => {
+const SearchResult = ({isVisible, filter, activeFilter}: SearchResultProps) => {
 
     const filterData = (type: string) => {
         filter(type)
@@ -75,8 +75,8 @@ const SearchResult = ({isVisible, filter}: SearchResultProps) => {
 
     return (
         <div className={`${styles.container} ${isVisible && styles.visible}`}>
-            <FilterList results={fakeResults} filterData={filterData}/>
-            <ResultList results={fakeResults}/>
+            <FilterList results={fakeResults} filterData={filterData} activeFilter={activeFilter}/>
+            <ResultList results={fakeResults} filter={activeFilter} />
         </div>
     )
 }

@@ -4,13 +4,17 @@ import Image from "next/image"
 import styles from "./styles.module.css"
 
 interface ResultListProps {
-    results: ResultType[]
+    results: ResultType[],
+    filter: string
 }
 
-const ResultList = ({results}: ResultListProps) => {
+const ResultList = ({results, filter}: ResultListProps) => {
+
+    const filteredResults = filter === '' ? results : results.filter(result => result.type === filter)
+
     return (
         <ul className={styles.list}>
-            {results?.map((result, index) => (
+            {filteredResults?.map((result, index) => (
                 <li key={index} className={styles.list_item}>
                     <Image src={`/img/icons/${result.type}.svg`} alt={result.type} width={24} height={24} />
                     <div className={styles.list_item_container}>

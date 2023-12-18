@@ -5,10 +5,11 @@ import { ResultType } from '@/helpers/types'
 
 interface FilterListProps {
     results: ResultType[],
-    filterData: (type: string) => void
+    filterData: (type: string) => void,
+    activeFilter: string
 }
 
-const FilterList = ({results, filterData}: FilterListProps) => {
+const FilterList = ({results, filterData, activeFilter}: FilterListProps) => {
     const people = results.filter(result => result.type === 'user').length
     const files = results.filter(result => result.type === 'file').length
     const folders = results.filter(result => result.type === 'folder').length
@@ -22,10 +23,10 @@ const FilterList = ({results, filterData}: FilterListProps) => {
             filterData('folder')
         }
     }
-
     
     return (
-        <ul className={styles.filter_list}>
+        <ul className={`${styles.filter_list} ${activeFilter !== '' && styles.hidden}`}>
+            <span>{activeFilter}</span>
             <li className={styles.filter_list_item} onClick={() => filterType('user')}>
                 <div className={styles.filter_list_item_container}>
                     <Image src='/img/icons/users.svg' alt='users' width={24} height={24} />
