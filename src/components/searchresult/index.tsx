@@ -6,7 +6,8 @@ import ResultList from '@/components/Lists/resultList'
 interface SearchResultProps {
     isVisible?: boolean,
     filter: (type: string) => void,
-    activeFilter: string
+    activeFilter: string,
+    query: string
 }
 
 const fakeResults = [
@@ -67,7 +68,7 @@ const fakeResults = [
 
 ]
 
-const SearchResult = ({isVisible, filter, activeFilter}: SearchResultProps) => {
+const SearchResult = ({isVisible, filter, activeFilter, query}: SearchResultProps) => {
 
     const filterData = (type: string) => {
         filter(type)
@@ -76,7 +77,7 @@ const SearchResult = ({isVisible, filter, activeFilter}: SearchResultProps) => {
     return (
         <div className={`${styles.container} ${isVisible && styles.visible}`}>
             <FilterList results={fakeResults} filterData={filterData} activeFilter={activeFilter}/>
-            <ResultList results={fakeResults} filter={activeFilter} />
+            <ResultList results={fakeResults} filter={activeFilter} query={query} />
         </div>
     )
 }

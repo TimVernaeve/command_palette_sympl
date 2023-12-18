@@ -5,13 +5,19 @@ import Image from 'next/image'
 interface SearchBarProps {
     isOpen?: boolean,
     filter: string,
-    updateFilter: (type: string) => void
+    updateFilter: (type: string) => void,
+    search: (query: string) => void
 }
 
-const SearchBar = ({isOpen, filter, updateFilter}: SearchBarProps) => {
+const SearchBar = ({isOpen, filter, updateFilter, search}: SearchBarProps) => {
 
     const removeFilter = () => {
         updateFilter('')
+    }
+
+    const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        search(value)
     }
 
     return (
@@ -63,6 +69,7 @@ const SearchBar = ({isOpen, filter, updateFilter}: SearchBarProps) => {
                 className={styles.searchbar}
                 type="text" 
                 placeholder="Search by keyword" 
+                onChange={handleSearch}
             />
         </div>
     )

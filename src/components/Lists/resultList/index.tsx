@@ -5,12 +5,22 @@ import styles from "./styles.module.css"
 
 interface ResultListProps {
     results: ResultType[],
-    filter: string
+    filter: string,
+    query: string
 }
 
-const ResultList = ({results, filter}: ResultListProps) => {
+const ResultList = ({results, filter, query}: ResultListProps) => {
 
-    const filteredResults = filter === '' ? results : results.filter(result => result.type === filter)
+    const search = query === '' ? [] : results.filter(
+        result => result.firstName?.toLowerCase().includes(query.toLowerCase()) ||
+         result.lastName?.toLowerCase().includes(query.toLowerCase()) ||
+          result.fileName?.toLowerCase().includes(query.toLowerCase()) ||
+           result.folderName?.toLowerCase().includes(query.toLowerCase()) ||
+            result.fileCreator?.toLowerCase().includes(query.toLowerCase()) ||
+             result.folderCreator?.toLowerCase().includes(query.toLowerCase())
+        )
+
+    const filteredResults = filter === '' ? search : search.filter(result => result.type === filter)
 
     return (
         <ul className={styles.list}>
