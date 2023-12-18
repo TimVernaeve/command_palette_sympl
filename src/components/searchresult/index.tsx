@@ -1,3 +1,4 @@
+import type { ResultType } from "@/helpers/types"
 import styles from './styles.module.css'
 
 import FilterList from '@/components/Lists/filterList'
@@ -7,77 +8,31 @@ interface SearchResultProps {
     isVisible?: boolean,
     filter: (type: string) => void,
     activeFilter: string,
-    query: string
+    query: string,
+    results: ResultType[]
 }
 
-const fakeResults = [
-    {
-        type: 'user',
-        firstName: 'John',
-        lastName: 'Doe',
-        lastLogin: '2 days',
-    },
-    {
-        type: 'user',
-        firstName: 'Jane',
-        lastName: 'Doe',
-        lastLogin: '5 days',
-    },
-    {
-        type: 'user',
-        firstName: 'John',
-        lastName: 'Smith',
-        lastLogin: '1 day',
-    },
-    {
-        type: 'file',
-        fileName: 'file-1.png',
-        fileCreator: 'John Doe',
-        folderName: 'Folder 1'
-    },
-    {
-        type: 'file',
-        fileName: 'file-2.png',
-        fileCreator: 'Jane Doe',
-        folderName: 'Folder 2'
-    },
-    {
-        type: 'file',
-        fileName: 'file-3.png',
-        fileCreator: 'John Smith',
-        folderName: 'Folder 3'
-    },
-    {
-        type: 'folder',
-        folderName: 'Folder 1',
-        folderCreator: 'John Doe',
-        createdAt: '2 days ago'
-    },
-    {
-        type: 'folder',
-        folderName: 'Folder 2',
-        folderCreator: 'Jane Doe',
-        createdAt: '5 days ago'
-    },
-    {
-        type: 'folder',
-        folderName: 'Folder 3',
-        folderCreator: 'John Smith',
-        createdAt: '1 day ago'
-    }
-
-]
-
-const SearchResult = ({isVisible, filter, activeFilter, query}: SearchResultProps) => {
+const SearchResult = ({isVisible, filter, activeFilter, query, results}: SearchResultProps) => {
 
     const filterData = (type: string) => {
         filter(type)
     }
 
+    const search = query === '' ? [] : results.filter(
+        result => result.firstName?.toLowerCase().includes(query.toLowerCase()) ||
+         result.lastName?.toLowerCase().includes(query.toLowerCase()) ||
+          result.fileName?.toLowerCase().includes(query.toLowerCase()) ||
+           result.folderName?.toLowerCase().includes(query.toLowerCase()) ||
+            result.fileCreator?.toLowerCase().includes(query.toLowerCase()) ||
+             result.folderCreator?.toLowerCase().includes(query.toLowerCase())
+        )
+
+    const filteredResults = activeFilter === '' ? search : search.filter(result => result.type === activeFilter)
+
     return (
         <div className={`${styles.container} ${isVisible && styles.visible}`}>
-            <FilterList results={fakeResults} filterData={filterData} activeFilter={activeFilter}/>
-            <ResultList results={fakeResults} filter={activeFilter} query={query} />
+            <FilterList results={filteredResults} filterData={filterData} activeFilter={activeFilter}/>
+            <ResultList results={filteredResults} />
         </div>
     )
 }
