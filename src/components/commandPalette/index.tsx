@@ -4,6 +4,8 @@ import { useState } from "react"
 import SearchBar from "../searchbar"
 import SearchResult from "../searchresult"
 
+import styles from './styles.module.css'
+
 const CommandPalette = () => {
 
     const [isOpen, setOpen] = useState(true)
@@ -14,7 +16,7 @@ const CommandPalette = () => {
     }
 
     return (
-        <div>
+        <div className={styles.container}>
             <SearchBar isOpen={isOpen} filter={filter} updateFilter={filterData}/>
             <SearchResult isVisible={isOpen} filter={filterData} activeFilter={filter}/>
         </div>
