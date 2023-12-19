@@ -29,7 +29,7 @@ const CommandPalette = () => {
     }
 
     const getResults = async () => {
-        const response = await fetch(`${process.env.API_URL}api/getAll`)
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/getAll`)
         const data = await response.json()
         setResults(data.results)
     }
