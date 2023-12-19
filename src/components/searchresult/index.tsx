@@ -19,13 +19,12 @@ const SearchResult = ({isVisible, filter, activeFilter, query, results}: SearchR
     }
 
     const search = query === '' ? [] : results.filter(
-        result => result.firstName?.toLowerCase().includes(query.toLowerCase()) ||
-         result.lastName?.toLowerCase().includes(query.toLowerCase()) ||
-          result.fileName?.toLowerCase().includes(query.toLowerCase()) ||
-           result.folderName?.toLowerCase().includes(query.toLowerCase()) ||
-            result.fileCreator?.toLowerCase().includes(query.toLowerCase()) ||
-             result.folderCreator?.toLowerCase().includes(query.toLowerCase())
-        )
+        result => result.fullName?.toLowerCase().includes(query.toLowerCase()) 
+        || result.fileName?.toLowerCase().includes(query.toLowerCase()) 
+        || result.folderName?.toLowerCase().includes(query.toLowerCase()) 
+        || result.fileCreator?.toLowerCase().includes(query.toLowerCase()) 
+        || result.folderCreator?.toLowerCase().includes(query.toLowerCase())
+    )
 
     const filteredResults = activeFilter === '' ? search : search.filter(result => result.type === activeFilter)
 

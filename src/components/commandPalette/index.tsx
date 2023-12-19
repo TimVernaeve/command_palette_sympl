@@ -31,6 +31,11 @@ const CommandPalette = () => {
     const getResults = async () => {
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}api/getAll`)
         const data = await response.json()
+        data.results.forEach((result: ResultType) => {
+            if (result.type === 'user') {
+                result.fullName = result.firstName + ' ' + result.lastName
+            } 
+        })
         setResults(data.results)
     }
 
