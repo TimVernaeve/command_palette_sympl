@@ -29,7 +29,7 @@
 
 .filter_list_item_container {
     display: flex;
-    gap: .5rem;
+    gap: 1rem;
     align-items: center;
     box-sizing: border-box;
 }
