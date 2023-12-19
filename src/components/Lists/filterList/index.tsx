@@ -29,32 +29,32 @@ const FilterList = ({results, filterData, activeFilter}: FilterListProps) => {
             <span>{activeFilter}</span>
             <li className={styles.filter_list_item} onClick={() => filterType('user')}>
                 <div className={styles.filter_list_item_container}>
-                    <Image src='/img/icons/users.svg' alt='users' width={24} height={24} />
+                    <Image src='/img/icons/users.svg' alt='users' width={32} height={32} />
                     <span>People</span>
                 </div>
                 <div className={styles.filter_list_item_container}>
                     <span className={styles.number}>{people}</span>
-                    <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={16} height={16} />
+                    <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={24} height={24} />
                 </div>
             </li>
             <li className={styles.filter_list_item} onClick={() => filterType('file')}>
                 <div className={styles.filter_list_item_container}>
-                    <Image src='/img/icons/file.svg' alt='files' width={24} height={24} />
+                    <Image src='/img/icons/file.svg' alt='files' width={32} height={32} />
                     <span>Files</span>
                 </div>
                 <div className={styles.filter_list_item_container}>
                     <span className={styles.number}>{files}</span>
-                    <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={16} height={16} />
+                    <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={24} height={24} />
                 </div>
             </li>
             <li className={styles.filter_list_item} onClick={() => filterType('folder')}>
                 <div className={styles.filter_list_item_container}>
-                    <Image src='/img/icons/folder.svg' alt='folders' width={24} height={24} />
+                    <Image src='/img/icons/folder.svg' alt='folders' width={32} height={32} />
                     <span>Folders</span>
                 </div>
                 <div className={styles.filter_list_item_container}>
                     <span className={styles.number}>{folders}</span>
-                    <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={16} height={16} />
+                    <Image src='/img/icons/arrow-right.svg' alt='right-arrow' width={24} height={24} />
                 </div>
             </li>
         </ul>

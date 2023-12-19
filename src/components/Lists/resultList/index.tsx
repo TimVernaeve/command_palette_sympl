@@ -16,7 +16,7 @@ const ResultList = ({results}: ResultListProps) => {
         <ul className={styles.list}>
             {results?.map((result, index) => (
                 <li key={index} className={styles.list_item}>
-                    <Image src={`/img/icons/${result.type}.svg`} alt={result.type} width={24} height={24} />
+                    <Image src={`/img/icons/${result.type}.svg`} alt={result.type} width={32} height={32} />
                     <div className={styles.list_item_container}>
                         <span className={styles.list_item_name}>
                             {result.type === 'user' && result.firstName + ' ' + result.lastName}

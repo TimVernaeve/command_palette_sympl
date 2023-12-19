@@ -5,11 +5,11 @@
     justify-content: left;
     flex-direction: column;
     height: auto;
-    width: 423px;
+    width: 800px;
     background-color: #E7EAEE;
-    border-radius: 0 0 .5rem .5rem;
-    padding-block: .125rem .5rem;
-    gap: .125rem;
+    border-radius: 0 0 1rem 1rem;
+    padding-block: 0 1rem;
+    gap: .25rem;
     box-sizing: border-box;
 }
 

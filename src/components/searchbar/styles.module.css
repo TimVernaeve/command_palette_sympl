@@ -2,7 +2,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 423px;
+    width: 800px;
     background-color: white;
     border-radius: .5rem;
     padding: 1rem;
@@ -20,7 +20,7 @@
     justify-content: center;
     width: 100%;
     border: none;
-    font-size: .75rem;
+    font-size: 1.25rem;
     color: #191D23;
     background-color: transparent;
 }
@@ -39,12 +39,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-inline: .5rem;
+    padding-inline: .75rem;
     padding-block: .125rem;
-    gap: .25rem;
+    gap: .5rem;
     background-color: #B8C0CC;
     color: #4B5768;
     font-weight: 500;
-    font-size: .625rem;
+    font-size: 1rem;
     box-sizing: border-box;
 }

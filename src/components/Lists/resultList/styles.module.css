@@ -5,7 +5,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: .125rem;
+    gap: .25rem;
 }
 
 .list_item {
@@ -14,9 +14,9 @@
     width: 100%;
     align-items: center;
     justify-content: left;
-    gap: .5rem;
-    padding-inline: 1rem;
-    padding-block: .125rem;
+    gap: 1rem;
+    padding-inline: 1.5rem;
+    padding-block: .25rem;
     box-sizing: border-box;
     background-color: #F7F8F9;
 }
@@ -36,11 +36,11 @@
 .list_item_name {
     width: 100%;
     font-weight:600;
-    font-size: .75rem;
+    font-size: .1.5rem;
 }
 
 .list_item_description {
     width: 100%;
-    font-size: .625rem;
-    font-weight: 200;
+    font-size: 1rem;
+    font-weight: 300;
 }

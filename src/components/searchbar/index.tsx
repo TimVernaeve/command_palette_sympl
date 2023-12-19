@@ -25,8 +25,8 @@ const SearchBar = ({isOpen, filter, updateFilter, search}: SearchBarProps) => {
             <Image 
                 src='/img/icons/search.svg' 
                 alt='searchIcon' 
-                width={16} 
-                height={16} 
+                width={24} 
+                height={24} 
             />
             {filter === 'user' &&
                 <span className={styles.label}>
@@ -34,8 +34,8 @@ const SearchBar = ({isOpen, filter, updateFilter, search}: SearchBarProps) => {
                     <Image 
                         src='/img/icons/close.svg' 
                         alt='arrowDown' 
-                        width={8} 
-                        height={8}
+                        width={16} 
+                        height={16}
                         onClick={() => removeFilter()}
                     />
                 </span>
@@ -46,8 +46,8 @@ const SearchBar = ({isOpen, filter, updateFilter, search}: SearchBarProps) => {
                     <Image 
                         src='/img/icons/close.svg' 
                         alt='arrowDown' 
-                        width={8} 
-                        height={8}
+                        width={16} 
+                        height={16}
                         onClick={() => removeFilter()}
                     />
                 </span>
@@ -59,8 +59,8 @@ const SearchBar = ({isOpen, filter, updateFilter, search}: SearchBarProps) => {
                 <Image 
                     src='/img/icons/close.svg' 
                     alt='arrowDown' 
-                    width={8} 
-                    height={8}
+                    width={16} 
+                    height={16}
                     onClick={() => removeFilter()}
                 />
             </span>
