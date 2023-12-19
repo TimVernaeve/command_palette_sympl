@@ -3,6 +3,9 @@ import Image from "next/image"
 
 import styles from "./styles.module.css"
 
+import { timeDifferenceConverter } from "@/helpers/timeDiffrenceConverter"
+import { getFormattedDateFromTimestamp } from "@/helpers/formatDate"
+
 interface ResultListProps {
     results: ResultType[]
 }
@@ -21,9 +24,9 @@ const ResultList = ({results}: ResultListProps) => {
                             {result.type === 'folder' && result.folderName}
                         </span>
                         <span className={styles.list_item_description}>
-                            {result.type === 'user' && `Last active ${result.lastLogin} ago`}
-                            {result.type === 'file' && `Added by ${result.fileCreator} in ${result.folderName}`}
-                            {result.type === 'folder' && `Folder added by ${result.folderCreator} ${result.createdAt}`}
+                            {result.type === 'user' && `Last active ${timeDifferenceConverter(new Date(result.lastLogin ?? Date.now()))} ago`}
+                            {result.type === 'file' && `Added by ${result.fileCreator} in ${result.folder}`}
+                            {result.type === 'folder' && `Folder added by ${result.folderCreator} ${getFormattedDateFromTimestamp(new Date(result.createdAt ?? Date.now()))}`}
                         </span>
                     </div>
                 </li>
